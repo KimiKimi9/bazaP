@@ -1,0 +1,14 @@
+<input type="text" [(ngModel)]="nazwisko" name="Nazwisko" placeholder="Nazwisko">
+<input type="text" [(ngModel)]="imie" name="Imie" placeholder="Imie">
+<input type="submit" value="Add a Post" (click)="addPrzestepca()">
+<ul *ngFor="let przestepca of przestepcy | async">
+  <li (click)="getPrzestepca(przestepca.id)">
+    <strong>{{ przestepca.data.Nazwisko}}</strong>
+    <strong>{{ przestepca.data.Imie}}</strong> (<a href="#" (click)="deletePrzestepca(przestepca.id)">usuń</a>)
+  </li>
+</ul>
+
+<h1>Dane przestępcy</h1>
+
+<h3>{{ (przestepca | async)?.Nazwisko }}</h3>
+<p>{{ (przestepca | async)?.Imie }}</p>
