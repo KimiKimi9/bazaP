@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PrzestepcaComponent } from './przestepca/przestepca.component';
+import { PrzestepcaDetailComponent } from './przestepca-detail/przestepca-detail.component';
+import { LogowanieComponent } from './logowanie/logowanie.component';
 
 
 const firebaseConfig = {
@@ -22,7 +24,9 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    PrzestepcaComponent
+    PrzestepcaComponent,
+    PrzestepcaDetailComponent,
+    LogowanieComponent
   ],
   imports: [
     BrowserModule,

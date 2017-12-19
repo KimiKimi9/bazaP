@@ -2,16 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from 'angularfire2/firestore';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
-interface Przestepca {
-  Imie: string;
-  Nazwisko: string;
-  PESEL: string;
-}
-
-interface PrzestepcaId extends Przestepca {
-  id: string;
-}
+import {Przestepca, PrzestepcaId} from '../Przestepca';
 
 
 @Component({
@@ -27,6 +18,7 @@ export class PrzestepcaComponent implements OnInit {
   nazwisko: string;
   przestepcaDoc: AngularFirestoreDocument<Przestepca>;
   przestepca: Observable<Przestepca>;
+  przId: any;
 
   constructor(private afs: AngularFirestore) {
   }
@@ -50,6 +42,7 @@ export class PrzestepcaComponent implements OnInit {
   getPrzestepca(przestepcaId) {
     this.przestepcaDoc = this.afs.doc('Przestepca/' + przestepcaId);
     this.przestepca = this.przestepcaDoc.valueChanges();
+    this.przId = przestepcaId;
   }
 
   deletePrzestepca(przestepcaId) {

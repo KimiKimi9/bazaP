@@ -1,0 +1,10 @@
+<div *ngIf="przestepca">
+  <div>
+    <label>Nazwisko:
+      <input [(ngModel)]="(przestepca | async).Nazwisko" placeholder="nazwisko"/>
+    </label>
+    <label>Imię:
+      <input [(ngModel)]="(przestepca | async).Imie" placeholder="imię"/>
+    </label>
+  </div>
+</div>
